@@ -6,6 +6,8 @@ import { VacationsModule } from './vacations/modules/vacations.module';
 import { ConstantsModule } from './constants/constants.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EmployeeVacation } from './vacations/entities/employee-vacation.entity';
+import { APP_FILTER } from '@nestjs/core';
+import { AllExceptionsFilter } from './exception-filter/filter.exception';
 
 @Module({
   imports: [
@@ -24,6 +26,12 @@ import { EmployeeVacation } from './vacations/entities/employee-vacation.entity'
     ConstantsModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: AllExceptionsFilter,
+    },
+  ],
 })
 export class AppModule {}
