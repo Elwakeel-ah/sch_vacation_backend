@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { VacationsModule } from './vacations/modules/vacations.module';
-import { ConstantsModule } from './constants/constants.module';
+import { ConstantsModule } from './constants/modules/constants.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EmployeeVacation } from './vacations/entities/employee-vacation.entity';
 import { APP_FILTER } from '@nestjs/core';
